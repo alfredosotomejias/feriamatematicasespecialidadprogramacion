@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081324">
+  <meta name="description" content="Feria interactiva de la Semana de las Matemáticas del Instituto Superior de Comercio de Talca. Descubre al azar los juegos creados por la Especialidad de Programación.">
+  <title>Semana de las Matemáticas 2026 | INSUCO Talca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-glow page-glow--one" aria-hidden="true"></div>
+  <div class="page-glow page-glow--two" aria-hidden="true"></div>
+  <div class="background-grid" aria-hidden="true"></div>
+
+  <div class="site-container">
+    <header class="site-header">
+      <a href="#inicio" class="brand" aria-label="Inicio de la Semana de las Matemáticas INSUCO Talca">
+        <span class="brand-mark" aria-hidden="true">∑</span>
+        <span class="brand-text">
+          <strong>INSUCO <span>TALCA</span></strong>
+          <small>Instituto Superior de Comercio</small>
+        </span>
+      </a>
+      <div class="header-event"><span class="live-dot" aria-hidden="true"></span> FERIA INTERACTIVA <span class="header-year">/ 2026</span></div>
+      <a class="header-link" href="#juegos">Ver los 6 desafíos <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="main-title">
+        <div class="hero-content">
+          <div class="eyebrow"><span class="eyebrow-symbol" aria-hidden="true">✳</span> UNA SEMANA PARA DESCUBRIR, CREAR Y JUGAR</div>
+          <h1 id="main-title">SEMANA DE LAS <span>MATEMÁTICAS<span class="period">.</span></span></h1>
+          <p class="hero-lead">Las matemáticas salen del cuaderno y se convierten en una <strong>aventura interactiva.</strong></p>
+          <p class="hero-body">En el <strong>Instituto Superior de Comercio de Talca</strong>, estudiantes de la <strong>Especialidad de Programación</strong> crearon seis juegos para poner a prueba tu ingenio. ¿Cuál te tocará?</p>
+
+          <div class="hero-badges" aria-label="Información de la feria">
+            <span class="hero-badge"><span aria-hidden="true">⌘</span> Desarrollados por estudiantes</span>
+            <span class="hero-badge"><span aria-hidden="true">∞</span> Desafíos matemáticos</span>
+          </div>
+
+          <div class="how-it-works" id="instrucciones">
+            <div class="how-heading"><span class="how-line"></span> ¿CÓMO PARTICIPAR?</div>
+            <div class="steps">
+              <div class="step"><span class="step-number">01</span><span>Gira la<br><strong>ruleta</strong></span></div>
+              <span class="step-arrow" aria-hidden="true">→</span>
+              <div class="step"><span class="step-number">02</span><span>Descubre tu<br><strong>desafío</strong></span></div>
+              <span class="step-arrow" aria-hidden="true">→</span>
+              <div class="step"><span class="step-number">03</span><span>¡Ingresa y<br><strong>juega!</strong></span></div>
+            </div>
+          </div>
+
+          <div class="hero-signature"><span class="signature-icon" aria-hidden="true">{ }</span><span>Una experiencia hecha con <strong>lógica, creatividad y código.</strong><br><small>Especialidad de Programación · INSUCO Talca</small></span></div>
+          <div class="floating-equation" aria-hidden="true">π &nbsp; √x &nbsp; ∆ &nbsp; f(x) &nbsp; ∞</div>
+        </div>
+
+        <section class="roulette-card" id="sorteo" aria-labelledby="roulette-title">
+          <div class="roulette-topline">
+            <div class="roulette-kicker"><span class="mini-spark" aria-hidden="true">✦</span> ZONA DE JUEGO <span class="roulette-number">/ 01</span></div>
+            <button class="sound-button" id="soundButton" type="button" aria-label="Activar sonido" aria-pressed="false" title="Activar sonido"><span id="soundIcon" aria-hidden="true">♫</span><span id="soundLabel">Sonido off</span></button>
+          </div>
+          <h2 id="roulette-title">El azar elige.<br><span>Tú aceptas el reto.</span></h2>
+          <p class="roulette-description">Seis juegos, una sola ruleta. ¡Que comience el desafío!</p>
+
+          <div class="wheel-stage" id="wheelStage">
+            <span class="wheel-spark wheel-spark--left" aria-hidden="true">✦</span>
+            <span class="wheel-spark wheel-spark--right" aria-hidden="true">✧</span>
+            <div class="wheel-pointer" aria-hidden="true"></div>
+            <div class="wheel-rim">
+              <canvas id="wheelCanvas" class="wheel-canvas" role="img" aria-label="Ruleta de seis juegos matemáticos. Pulsa el botón para sortear un desafío."></canvas>
+            </div>
+            <div class="wheel-center" aria-hidden="true"><strong>∑</strong><small>INSUCO</small></div>
+          </div>
+
+          <div class="spin-controls">
+            <button type="button" class="spin-button" id="spinButton"><span class="spin-button-icon" aria-hidden="true">⟳</span><span id="spinButtonText">¡GIRAR LA RULETA!</span><span class="spin-button-arrow" aria-hidden="true">↗</span></button>
+            <p class="spin-status" id="spinStatus" role="status" aria-live="polite">Presiona el botón y descubre tu juego matemático.</p>
+          </div>
+
+          <div class="selection-panel" id="selectionPanel" hidden>
+            <div class="selection-label"><span aria-hidden="true">✦</span> ¡TU JUEGO HA SIDO ELEGIDO!</div>
+            <div class="selection-name"><span id="selectedIcon" class="selection-icon" aria-hidden="true">🎯</span><div><strong id="selectedName">Cañón matemático</strong><p id="selectedDescription">Prepárate para el reto.</p></div></div>
+            <a id="playLink" class="play-button" href="#" target="_blank" rel="noopener noreferrer">ENTRAR AL JUEGO <span aria-hidden="true">↗</span></a>
+            <small class="open-note">Se abrirá en una pestaña nueva.</small>
+          </div>
+
+          <div class="mode-container">
+            <label class="balance-setting" for="balanceToggle">
+              <span class="setting-icon" aria-hidden="true">⚖</span>
+              <span class="setting-copy"><strong>Modo equilibrado</strong><small id="balanceExplanation">Los 6 juegos aparecen una vez por ronda, en orden aleatorio.</small></span>
+              <span class="switch"><input id="balanceToggle" type="checkbox" checked><span class="switch-track"></span></span>
+            </label>
+            <p class="round-note" id="roundNote">Ronda lista: 6 juegos por descubrir.</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="games-section" id="juegos" aria-labelledby="games-title">
+        <div class="section-header">
+          <div><div class="section-eyebrow">CREATIVIDAD + MATEMÁTICAS + PROGRAMACIÓN</div><h2 id="games-title">Los 6 juegos de la feria<span>.</span></h2></div>
+          <div class="section-side-note"><span class="note-icon" aria-hidden="true">✦</span> CREADOS POR ESTUDIANTES<br><strong>ESPECIALIDAD DE PROGRAMACIÓN</strong></div>
+        </div>
+        <div class="games-grid" id="gamesGrid" aria-label="Juegos que pueden salir en la ruleta"></div>
+        <noscript><p class="noscript-note">Activa JavaScript para ver los juegos y usar la ruleta.</p></noscript>
+      </section>
+
+      <section class="activity-section" aria-labelledby="activity-title">
+        <div class="activity-heading"><div><div class="section-eyebrow">EN ESTE DISPOSITIVO</div><h2 id="activity-title">La feria en números<span>.</span></h2></div><button type="button" class="reset-button" id="resetButton">↺ Reiniciar conteo</button></div>
+        <div class="activity-content">
+          <div class="activity-stat"><strong id="totalDraws">0</strong><span>Sorteos realizados</span></div>
+          <div class="activity-stat"><strong id="gamesCovered">0<span class="stat-divider">/6</span></strong><span>Juegos que han salido</span></div>
+          <div class="activity-recent"><strong>ÚLTIMOS SORTEOS</strong><div class="recent-list" id="recentList"><span class="recent-empty">Aún no hay sorteos. ¡Sé el primero!</span></div></div>
+        </div>
+        <p class="local-note">Los contadores se guardan únicamente en este navegador; no se sincronizan entre teléfonos o computadores. Este portal no recopila nombres ni puntajes.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-identity"><span class="footer-mark" aria-hidden="true">∑</span><div><strong>SEMANA DE LAS MATEMÁTICAS · 2026</strong><span>Instituto Superior de Comercio · Talca, Chile</span></div></div><div class="footer-right">CON EL TALENTO DE LA <strong>ESPECIALIDAD DE PROGRAMACIÓN</strong> <span aria-hidden="true">✳</span></div></footer>
+  </div>
+  <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+</body>
+</html>
