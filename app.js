@@ -9,13 +9,13 @@
 const GAMES = [
   {
     id: "canon",
-    name: "Cañón matemático",
+    name: "Suma rana",
     lines: ["Cañón", "matemático"],
-    icon: "🎯",
+    icon: "🐸",
     description: "Apunta, calcula y dispara al resultado correcto.",
     color: "#2786bc",
     accent: "#7ad2ff",
-    url: "https://maximilianovalenzuelamatus3pa.github.io/mini-juego/"
+    url: "https://cyclo45.github.io/RANA-MATEMATICA-/"
   },
   {
     id: "rana",
